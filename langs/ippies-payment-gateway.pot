@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+
+msgid "Transaction Details"
+msgstr ""
+
+msgid "You chose payment by Ippies. Click Continue do proceed"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Enable ippies.nl Payment"
+msgstr ""
+
+msgid "Ippies Shop ID"
+msgstr ""
+
+msgid "Ippies API secret"
+msgstr ""
+
+msgid "Pay with the ippies you have saved!"
+msgstr ""
+
+msgid "Thank you for your order. We are now redirecting you to ippies.nl to make payment."
+msgstr ""
