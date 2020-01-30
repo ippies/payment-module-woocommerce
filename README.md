@@ -12,4 +12,4 @@ Heb je nog geen `shop id` en `API secret`? Neem dan contact op met `developers@i
 
 ## TO DO
  - [ ] Betaling opnieuw starten geeft duplicate error
- - [ ] Vertalingen toevoegen
+ - [x] Vertalingen toevoegen
