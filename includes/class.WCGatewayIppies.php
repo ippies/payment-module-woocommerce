@@ -8,6 +8,9 @@
 	    // Ippies URL
 	    const IPPIES_URL = 'https://payment.ippies.nl/paymod.php';
 
+	    // Ippies sandbox url
+	    const IPPIES_TEST_URL = 'https://payment.ippiestest.nl/paymod.php';
+
 	    // Gateway name
 	    const PAYMENT_METHOD = 'ippies';
 
@@ -40,12 +43,26 @@
 					'label' => __('Enable ippies.nl Payment', 'ippies-payment-gateway'),
 					'default' => 'yes'
 				),
-				'ippies_shop_id' => array(
-					'title' => __('Ippies Shop ID', 'ippies-payment-gateway'),
+				'ippies_mode' => array(
+					'title' => __('Live/Test', 'ippies-payment-gateway'),
+					'type' => 'checkbox',
+					'label' => __('Disable test mode', 'ippies-payment-gateway'),
+					'default' => 'no'
+				),
+				'ippies_api_live_id' => array(
+					'title' => __('Ippies API ID (live)', 'ippies-payment-gateway'),
 					'type' => 'text',
 				),
-				'ippies_api_secret' => array(
-					'title' => __('Ippies API secret', 'ippies-payment-gateway'),
+				'ippies_api_live_secret' => array(
+					'title' => __('Ippies API secret (live)', 'ippies-payment-gateway'),
+					'type' => 'text',
+				),
+				'ippies_api_test_id' => array(
+					'title' => __('Ippies API ID (test)', 'ippies-payment-gateway'),
+					'type' => 'text',
+				),
+				'ippies_api_test_secret' => array(
+					'title' => __('Ippies API secret (test)', 'ippies-payment-gateway'),
 					'type' => 'text',
 				),                          
 				'title' => array(
@@ -92,12 +109,19 @@
 
 		function generate_ippies_form_legacy( $order_id ) {
 
-			// SET THIS WITH SETTINGS
-			$controle_key = $this->get_option( 'ippies_api_secret' );;
-			$pay_shopid = $this->get_option( 'ippies_shop_id' );
-
 			$order = new WC_Order( $order_id );
+
+			// SET THIS WITH SETTINGS
 			$ippies_url = self::IPPIES_URL;
+			$controle_key = $this->get_option( 'ippies_api_live_secret' );;
+			$pay_shopid = $this->get_option( 'ippies_api_live_id' );
+			$live_mode = $this->get_option( 'ippies_mode' );
+
+			if ($live_mode == 'no') {
+				$ippies_url = self::IPPIES_TEST_URL;
+				$controle_key = $this->get_option( 'ippies_api_test_secret' );;
+				$pay_shopid = $this->get_option( 'ippies_api_test_id' );
+			}
 
 			// $ippies_id = $this->get_option( 'ippies_id' );
 			$blog_name = (string) get_bloginfo();

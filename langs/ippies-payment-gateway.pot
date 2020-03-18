@@ -13,6 +13,21 @@ msgstr ""
 msgid "Enable ippies.nl Payment"
 msgstr ""
 
+msgid "Disable test mode"
+msgstr ""
+
+msgid "Ippies API ID (live)"
+msgstr ""
+
+msgid "Ippies API secret (live)"
+msgstr ""
+
+msgid "Ippies API ID (test)"
+msgstr ""
+
+msgid "Ippies API secret (test)"
+msgstr ""
+
 msgid "Ippies Shop ID"
 msgstr ""
 
